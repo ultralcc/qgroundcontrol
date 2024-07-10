@@ -95,6 +95,25 @@ void QGCPalette::_buildMap()
     DECLARE_QGC_SINGLE_COLOR(mapMissionTrajectory,          "#be781c")
     DECLARE_QGC_SINGLE_COLOR(surveyPolygonInterior,         "green")
     DECLARE_QGC_SINGLE_COLOR(surveyPolygonTerrainCollision, "red")
+
+    DECLARE_QGC_SINGLE_COLOR(primaryColor,     "#111111")
+    DECLARE_QGC_SINGLE_COLOR(secondaryColor,     "#D0F102")
+
+    DECLARE_QGC_SINGLE_COLOR(status1Color,  "#6874F4")
+    DECLARE_QGC_SINGLE_COLOR(status2Color,     "#FBC64B")
+    DECLARE_QGC_SINGLE_COLOR(status3Color,     "#F5894B")
+
+    DECLARE_QGC_SINGLE_COLOR(text1Color,  "#FFFFFF")
+    DECLARE_QGC_SINGLE_COLOR(text2Color,     "#A9A9A9")
+    DECLARE_QGC_SINGLE_COLOR(text3Color,     "#8E8E8E")
+    DECLARE_QGC_SINGLE_COLOR(text4Color,    "#5B5B5B")
+    DECLARE_QGC_SINGLE_COLOR(text5Color,    "#2D2D2D")
+
+    DECLARE_QGC_SINGLE_COLOR(neutral1Color,  "#222222")
+    DECLARE_QGC_SINGLE_COLOR(neutral2Color,     "#333333")
+    DECLARE_QGC_SINGLE_COLOR(neutral3Color,     "#444444")
+    DECLARE_QGC_SINGLE_COLOR(neutral4Color,    "#666666")
+    DECLARE_QGC_SINGLE_COLOR(neutral5Color,    "#FFFFFF")
 }
 
 void QGCPalette::setColorGroupEnabled(bool enabled)

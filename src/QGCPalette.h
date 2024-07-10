@@ -153,7 +153,26 @@ public:
     DEFINE_QGC_COLOR(toolStripFGColor,              setToolStripFGColor)
     DEFINE_QGC_COLOR(toolStripHoverColor,           setToolStripHoverColor)
 
-     QGCPalette(QObject* parent = nullptr);
+    DEFINE_QGC_COLOR(primaryColor,                  setPrimaryColor)
+    DEFINE_QGC_COLOR(secondaryColor,           setSecondaryColor)
+    
+    DEFINE_QGC_COLOR(status1Color,           setStatus1Color)
+    DEFINE_QGC_COLOR(status2Color,           setStatus2Color)
+    DEFINE_QGC_COLOR(status3Color,           setStatus3Color)
+    
+    DEFINE_QGC_COLOR(text1Color,           settext1Color)
+    DEFINE_QGC_COLOR(text2Color,           setText2Color)
+    DEFINE_QGC_COLOR(text3Color,           setText3Color)
+    DEFINE_QGC_COLOR(text4Color,           setText4Color)
+    DEFINE_QGC_COLOR(text5Color,           setText5Color)
+    
+    DEFINE_QGC_COLOR(neutral1Color,           setNeutral1Color)
+    DEFINE_QGC_COLOR(neutral2Color,           setNeutral2Color)
+    DEFINE_QGC_COLOR(neutral3Color,           setNeutral3Color)
+    DEFINE_QGC_COLOR(neutral4Color,           setNeutral4Color)
+    DEFINE_QGC_COLOR(neutral5Color,           setNeutral5Color)
+
+    QGCPalette(QObject* parent = nullptr);
     ~QGCPalette();
 
     QStringList colors                      () const { return _colors; }

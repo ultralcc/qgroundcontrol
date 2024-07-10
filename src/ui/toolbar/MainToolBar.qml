@@ -31,7 +31,7 @@ Rectangle {
 
     property var    _activeVehicle:     QGroundControl.multiVehicleManager.activeVehicle
     property bool   _communicationLost: _activeVehicle ? _activeVehicle.vehicleLinkManager.communicationLost : false
-    property color  _mainStatusBGColor: qgcPal.brandingPurple
+    property color  _mainStatusBGColor: qgcPal.window
 
     function dropMessageIndicatorTool() {
         if (currentToolbar === flyViewToolbar) {
@@ -64,32 +64,69 @@ Rectangle {
     }
 
     RowLayout {
-        id:                     viewButtonRow
-        anchors.bottomMargin:   1
-        anchors.top:            parent.top
-        anchors.bottom:         parent.bottom
-        spacing:                ScreenTools.defaultFontPixelWidth / 2
+    id:                     viewButtonRow
+    anchors.bottomMargin:   1
+    anchors.top:            parent.top
+    anchors.bottom:         parent.bottom
+    anchors.left:           parent.left
+    anchors.leftMargin:     10
+    spacing:                ScreenTools.defaultFontPixelWidth / 2
 
-        QGCToolBarButton {
-            id:                     currentButton
-            Layout.preferredHeight: viewButtonRow.height
-            icon.source:            "/res/QGCLogoFull"
-            logo:                   true
-            onClicked:              mainWindow.showToolSelectDialog()
-        }
+    QGCToolBarButton {
+        id: currentButton
+        Layout.preferredHeight: viewButtonRow.height
+        Layout.alignment: Qt.AlignVCenter
+        onClicked: mainWindow.showToolSelectDialog()
 
-        MainStatusIndicator {
-            Layout.preferredHeight: viewButtonRow.height
-            visible:                currentToolbar === flyViewToolbar
-        }
+        Item {
+            width: parent.width
+            height: parent.height
 
-        QGCButton {
-            id:                 disconnectButton
-            text:               qsTr("Disconnect")
-            onClicked:          _activeVehicle.closeVehicle()
-            visible:            _activeVehicle && _communicationLost && currentToolbar === flyViewToolbar
+            Image {
+                source: "/res/QGCLogoFull"
+                width: 55
+                height: 55
+                anchors.centerIn: parent
+            }
         }
     }
+
+    Column {
+        spacing: -3
+        Layout.alignment: Qt.AlignVCenter
+        Text {
+            text: qsTr("Drone status")
+            font.pointSize: 14
+            color: "#8E8E8E"
+        }
+        Row {
+            spacing: 3
+            Rectangle {
+                width: 8 
+                height: 8
+                radius: 4 
+                color: "#666666"
+                anchors.verticalCenter: parent.verticalCenter
+                visible: currentToolbar === flyViewToolbar
+            }
+            MainStatusIndicator {
+                Layout.preferredHeight: viewButtonRow.height
+                visible: currentToolbar === flyViewToolbar
+            }
+        }
+    }
+
+    QGCButton {
+        id:                 disconnectButton
+        text:               qsTr("Disconnect")
+        font.pointSize: 16
+        font.weight:        Font.Large
+        Layout.alignment: Qt.AlignVCenter
+        onClicked:          _activeVehicle.closeVehicle()
+        visible:            _activeVehicle && _communicationLost && currentToolbar === flyViewToolbar
+    }
+}
+
 
     QGCFlickable {
         id:                     toolsFlickable
