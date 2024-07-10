@@ -359,7 +359,6 @@ FlightMap {
     // Rally points on map
     MapItemView {
         model: _rallyPointController.points
-
         delegate: MapQuickItem {
             id:             itemIndicator
             anchorPoint.x:  sourceItem.anchorPointX

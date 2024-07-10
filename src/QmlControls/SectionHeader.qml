@@ -32,38 +32,27 @@ FocusScope {
             _root.focus = true
             checked = !checked
         }
+        Rectangle{
+            radius: 8
+            color: qgcPal.primaryColor
+            anchors.margins: 20
+            ColumnLayout {
+                id:             column
+                anchors.left:   parent.left
+                anchors.right:  parent.right
 
-        ColumnLayout {
-            id:             column
-            anchors.left:   parent.left
-            anchors.right:  parent.right
 
-            Item {
-                height:     _sectionSpacer
-                width:      1
-                visible:    showSpacer
-            }
-
-            QGCLabel {
-                id:                 label
-                Layout.fillWidth:   true
-
-                QGCColoredImage {
-                    id:                     image
-                    anchors.right:          parent.right
-                    anchors.verticalCenter: parent.verticalCenter
-                    width:                  label.height / 2
-                    height:                 width
-                    source:                 "/qmlimages/arrow-down.png"
-                    color:                  qgcPal.text
-                    visible:                !_root.checked
+                QGCLabel {
+                    id:                 label
+                    Layout.fillWidth:   true
+                
                 }
-            }
 
-            Rectangle {
-                Layout.fillWidth:   true
-                height:             1
-                color:              qgcPal.text
+                Rectangle {
+                    Layout.fillWidth:   true
+                    height:             1
+                    color:              qgcPal.text
+                }
             }
         }
     }

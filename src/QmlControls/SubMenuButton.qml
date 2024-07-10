@@ -14,7 +14,7 @@ Button {
     property bool   setupComplete:  true                                    ///< true: setup complete indicator shows as completed
     property bool   setupIndicator: true                                    ///< true: show setup complete indicator
     property var    imageColor:     undefined
-    property string imageResource:  "/qmlimages/subMenuButtonImage.png"     ///< Button image
+    property string imageResource:  ""     ///< Button image
     property size   sourceSize:     Qt.size(ScreenTools.defaultFontPixelHeight * 2, ScreenTools.defaultFontPixelHeight * 2)
 
     text:               "Button"  ///< Pass in your own button text

@@ -268,16 +268,86 @@ Item {
         property real rightEdgeBottomInset: visible ? bottomEdgeRightInset + width/18 - ScreenTools.defaultFontPixelHeight*2 : 0
     }
 
+Rectangle {
+            width: 96
+            height: 34
+            radius: 8
+                anchors.left: parent.left
+                anchors.leftMargin: 20
+                anchors.top: parent.top
+                anchors.topMargin: 20
+            color: "black"
+            RowLayout {
+                spacing: 12
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                Rectangle {
+                    id: planButton
+                    width: 40
+                    height: 24
+                    radius: 4
+                    color: qgcPal.primaryColor
+                    anchors.left: parent.left
+                    anchors.leftMargin: 4
+
+                    MouseArea {
+                        id: planButtonMouseArea
+                        anchors.fill: parent
+                        onClicked: {
+                            mainWindow.showPlanView()
+                        }
+                    }
+
+                    Text {
+                        text: qsTr("Plan")
+                        anchors.centerIn: parent
+                        color: "#FFFFFF"
+                        font.pointSize: 14
+                        font.bold: true
+                    }
+                }
+                
+                Rectangle {
+                    id: flyButton
+                    width: 40
+                    height: 24
+                    radius: 4
+                    color: qgcPal.secondaryColor
+                    anchors.right: parent.right
+                    anchors.rightMargin: 4
+                    
+                    MouseArea {
+                        id: flyButtonMouseArea
+                        anchors.fill: parent
+                        onClicked: {
+                            mainWindow.showFlyView()
+
+                        }
+                    }
+
+                    Text {
+                        text: qsTr("Fly")
+                        anchors.centerIn: parent
+                        color: qgcPal.text5Color
+                        font.pointSize: 14
+                        font.bold: true
+                    }
+                }
+            }
+        }
     FlyViewToolStrip {
         id:                     toolStrip
-        anchors.leftMargin:     _toolsMargin + parentToolInsets.leftEdgeCenterInset
-        anchors.topMargin:      _toolsMargin + parentToolInsets.topEdgeLeftInset
+        // anchors.leftMargin:     _toolsMargin + parentToolInsets.leftEdgeCenterInset
+        // anchors.topMargin:      _toolsMargin + parentToolInsets.topEdgeLeftInset
         anchors.left:           parent.left
         anchors.top:            parent.top
+        anchors.topMargin: 60
+        anchors.leftMargin: 20
         z:                      QGroundControl.zOrderWidgets
         maxHeight:              parent.height - y - parentToolInsets.bottomEdgeLeftInset - _toolsMargin
         visible:                !QGroundControl.videoManager.fullScreen
 
+        width: 96
         onDisplayPreFlightChecklist: preFlightChecklistPopup.createObject(mainWindow).open()
 
 
@@ -299,6 +369,8 @@ Item {
         anchors.margins:    _toolsMargin
         anchors.left:       toolStrip.right
         anchors.top:        parent.top
+        anchors.topMargin: 22
+        anchors.leftMargin: 20
         mapControl:         _mapControl
         buttonsOnLeft:      true
         visible:            !ScreenTools.isTinyScreen && QGroundControl.corePlugin.options.flyView.showMapScale && mapControl.pipState.state === mapControl.pipState.fullState

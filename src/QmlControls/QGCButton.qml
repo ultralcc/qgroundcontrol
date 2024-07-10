@@ -18,7 +18,7 @@ Button {
     property real   pointSize:      ScreenTools.defaultFontPointSize    ///< Point size for button text
     property bool   showBorder:     qgcPal.globalTheme === QGCPalette.Light
     property bool   iconLeft:       false
-    property real   backRadius:     0
+    property real   backRadius:     8
     property real   heightFactor:   0.5
     property real   fontWeight:     Font.Normal // default for qml Text
     property string iconSource
@@ -41,8 +41,8 @@ Button {
         border.width:   showBorder ? 1 : 0
         border.color:   qgcPal.buttonText
         color:          _showHighlight ?
-                            qgcPal.buttonHighlight :
-                            (primary ? qgcPal.primaryButton : qgcPal.button)
+                            qgcPal.neutral3Color :
+                            (primary ? qgcPal.neutral3Color : qgcPal.neutral2Color)
     }
 
     contentItem: Item {
@@ -74,8 +74,9 @@ Button {
             font.family:            ScreenTools.normalFontFamily
             font.weight:            fontWeight
             color:                  _showHighlight ?
-                                        qgcPal.buttonHighlightText :
-                                        (primary ? qgcPal.primaryButtonText : qgcPal.buttonText)
+                                        qgcPal.secondaryColor :
+                                        (primary ? qgcPal.secondaryColor : qgcPal.text3Color)
+        
         }
     }
 }

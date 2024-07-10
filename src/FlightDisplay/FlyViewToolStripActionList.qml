@@ -14,15 +14,14 @@ import QGroundControl.Controls  1.0
 
 ToolStripActionList {
     id: _root
-
     signal displayPreFlightChecklist
 
     model: [
-        ToolStripAction {
-            text:           qsTr("Plan")
-            iconSource:     "/qmlimages/Plan.svg"
-            onTriggered:    mainWindow.showPlanView()
-        },
+        // ToolStripAction {
+        //     text:           qsTr("Plan")
+        //     iconSource:     "/qmlimages/Plan.svg"
+        //     onTriggered:    mainWindow.showPlanView()
+        // },
         PreFlightCheckListShowAction { onTriggered: displayPreFlightChecklist() },
         GuidedActionTakeoff { },
         GuidedActionLand { },

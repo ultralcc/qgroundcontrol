@@ -31,7 +31,7 @@ Rectangle {
 
     property var    _activeVehicle:     QGroundControl.multiVehicleManager.activeVehicle
     property bool   _communicationLost: _activeVehicle ? _activeVehicle.vehicleLinkManager.communicationLost : false
-    property color  _mainStatusBGColor: qgcPal.window
+    property color  _mainStatusBGColor: qgcPal.toolbarBackground
 
     function dropMessageIndicatorTool() {
         if (currentToolbar === flyViewToolbar) {
@@ -98,6 +98,7 @@ Rectangle {
             text: qsTr("Drone status")
             font.pointSize: 14
             color: "#8E8E8E"
+            visible: currentToolbar === flyViewToolbar
         }
         Row {
             spacing: 3
