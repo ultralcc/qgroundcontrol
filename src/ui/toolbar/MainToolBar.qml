@@ -97,7 +97,7 @@ Rectangle {
         Text {
             text: qsTr("Drone status")
             font.pointSize: 14
-            color: "#8E8E8E"
+            color: qgcPal.text3Color
             visible: currentToolbar === flyViewToolbar
         }
         Row {
@@ -106,7 +106,7 @@ Rectangle {
                 width: 8 
                 height: 8
                 radius: 4 
-                color: "#666666"
+                color: qgcPal.neutral4Color
                 anchors.verticalCenter: parent.verticalCenter
                 visible: currentToolbar === flyViewToolbar
             }
